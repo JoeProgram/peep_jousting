@@ -7,7 +7,7 @@ public class NextLevelButton : MonoBehaviour {
 		foreach( Touch touch in Input.touches ){
 			if( touch.phase == TouchPhase.Began ){
 				RaycastHit hitInfo;
-				if( collider.Raycast( Camera.main.ScreenPointToRay(touch.position), out hitInfo, Mathf.Infinity)){
+				if( GetComponent<Collider>().Raycast( Camera.main.ScreenPointToRay(touch.position), out hitInfo, Mathf.Infinity)){
 					
 					
 					if( Application.loadedLevel < 12 ){

@@ -7,7 +7,7 @@ public class ResetButton : MonoBehaviour {
 		foreach( Touch touch in Input.touches ){
 			if( touch.phase == TouchPhase.Began ){
 				RaycastHit hitInfo;
-				if( collider.Raycast( Camera.main.ScreenPointToRay(touch.position), out hitInfo, Mathf.Infinity)){
+				if( GetComponent<Collider>().Raycast( Camera.main.ScreenPointToRay(touch.position), out hitInfo, Mathf.Infinity)){
 					Application.LoadLevel( Application.loadedLevel );
 					break;
 				}

@@ -10,7 +10,7 @@ public class InvalidRing : MonoBehaviour {
 	public Peep peep;	
 	
 	protected virtual void Awake(){
-		renderer.enabled = false;	
+		GetComponent<Renderer>().enabled = false;	
 		iTween.RotateBy(gameObject,iTween.Hash("y",1,"time",10,"looptype",iTween.LoopType.loop,"easetype",iTween.EaseType.linear));
 		peep = transform.parent.GetComponent<Peep>();
 	}
@@ -24,7 +24,7 @@ public class InvalidRing : MonoBehaviour {
 			if( other.GetComponent<InvalidRing>().peep.GetTeam() == Peep.Team.PINK && peep.GetTeam() == Peep.Team.PINK ) return;
 			
 			invalidPeeps ++;
-			renderer.enabled = true;
+			GetComponent<Renderer>().enabled = true;
 			
 			Game.Instance.invalidRings ++;
 
@@ -45,7 +45,7 @@ public class InvalidRing : MonoBehaviour {
 			Game.Instance.invalidRings --;
 			
 			if( invalidPeeps == 0 ){
-				renderer.enabled = false;			
+				GetComponent<Renderer>().enabled = false;			
 			}
 		}
 	}

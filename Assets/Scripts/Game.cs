@@ -124,7 +124,7 @@ public class Game : MonoBehaviour {
 	
 	protected virtual void Win(){
 		gameResult = GameResult.WON;
-		resultText.renderer.enabled = true;
+		resultText.GetComponent<Renderer>().enabled = true;
 		SetState( State.OVER );
 		nextLevelButton.SetActiveRecursively( true );
 	}
@@ -132,7 +132,7 @@ public class Game : MonoBehaviour {
 	protected virtual void Lose(){
 		gameResult = GameResult.LOST;
 		resultText.text = "You've lost";	
-		resultText.renderer.enabled = true;
+		resultText.GetComponent<Renderer>().enabled = true;
 		SetState( State.OVER );	
 	}
 	

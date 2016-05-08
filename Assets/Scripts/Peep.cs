@@ -53,7 +53,7 @@ public class Peep : MonoBehaviour {
 		
 		if( state == State.ATTACK ){
 			StartAttack();
-			rigidbody.isKinematic = false; // turn on real physics
+			GetComponent<Rigidbody>().isKinematic = false; // turn on real physics
 			if( GetComponent<Draggable>() != null ) GetComponent<Draggable>().enabled = false;
 
 		}
@@ -64,7 +64,7 @@ public class Peep : MonoBehaviour {
 	
 	
 	protected virtual void StartAttack(){
-		invalidRing.active = false;
+		invalidRing.enabled = false;
 		iTween.ScaleTo(gameObject,iTween.Hash("name","peep_attack","x", transform.localScale.x * meltedWidth,"y",transform.localScale.y * meltedHeight,"z", transform.localScale.z * meltedWidth, "time", Game.Instance.microwaveTime,"easetype",iTween.EaseType.linear,"onupdate","DuringAttack"));
 	}	
 	
